@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export function fetchTiles() {
   return dispatch => {
-    return fetch(`http://localhost:3000/tiles` ,{
+    return fetch(`http://0.0.0.0:8080/tiles` ,{
               method: 'GET',
               headers:{
                   "Content-Type": 'application/json',
@@ -22,7 +22,7 @@ export function addTile(location) {
   return dispatch => {
     return axios({
       method: 'post',
-      url: `http://localhost:3000/tile`,
+      url: `http://0.0.0.0:8080/tile`,
       data: {
         location: location,
         percentage: 0,
@@ -40,7 +40,7 @@ export function addCard(el) {
   return dispatch => {
     return axios({
       method: 'put',
-      url: `http://localhost:3000/tile/${el._id}`,
+      url: `http://0.0.0.0:8080/tile/${el._id}`,
       data: {cards: ++el.cards}
     }).then(() => dispatch(fetchTiles()));
   }
@@ -51,7 +51,7 @@ export function deleteCard(el) {
   if (el.cards >= 1) {
     return axios({
       method: 'put',
-      url: `http://localhost:3000/tile/${el._id}`,
+      url: `http://0.0.0.0:8080/tile/${el._id}`,
       data: {cards: --el.cards}
     }).then(() => dispatch(fetchTiles()));
   }
