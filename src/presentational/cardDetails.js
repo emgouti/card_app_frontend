@@ -11,7 +11,7 @@ const cardDetails = (props) => {
       <h3>Markets</h3>
         <div className='flexcontainer'>
           <Row>
-          {props.tiles.map(el => (
+          {props.tiles.map((el, i)=> (
           <Col sm="6">
             <Card body>
             <div>
@@ -26,7 +26,7 @@ const cardDetails = (props) => {
             <div>
             <h9>% of total: </h9> <h9>{Math.round((el.cards/props.tot)*100)} %</h9>
             <div>
-              <Button onClick={() => props.addCard(el)} size="sm" style={{ backgroundColor: "grey"}}>Add Card</Button>  <Button onClick={() => props.deleteCard(el)} size="sm" style={{ backgroundColor: "grey"}}>Delete Card</Button>
+              <Button onClick={() => props.addCard(el, i)} size="sm" style={{ backgroundColor: "grey"}}>Add Card</Button>  <Button onClick={() => props.deleteCard(el, i)} size="sm" style={{ backgroundColor: "grey"}}>Delete Card</Button>
               </div>
               </div>
             </Card>
